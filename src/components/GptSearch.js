@@ -21,4 +21,4 @@ const GptSearch = () => {
   )
 }
 
-export default GptSearch
+export default GptSearch;

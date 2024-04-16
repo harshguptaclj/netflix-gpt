@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import { addUser, removeUser } from '../utils/userSlice';
 import {useDispatch} from "react-redux"
-import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
+import { LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from '../utils/constants';
 import { toggleGptSearchView } from '../utils/gptSlice';
 import { changeLanguage } from '../utils/configSlice';
 
@@ -71,11 +71,11 @@ const Header = () => {
           
         </select>}
         <button className="py-2 px-4 mx-5 my-3 bg-purple-800 text-white rounded-lg font-bold"
-         onClick={handleGptSearchClick}>{!showGptSearch?"GPT Search":"Home"}</button>
+         onClick={handleGptSearchClick}>{!showGptSearch?"🔍 GPT Search":"Home"}</button>
         <img
           className=" hidden md:inline-block w-14 h-12 my-3 rounded-md "
           alt="userIcon"
-          src={user?.photoURL}
+          src={USER_AVATAR}
           ></img>
         <button onClick={handleSignOut} className="font-bold text-white h-12 mx-5 my-3 p-2 bg-red-600 rounded-xl">Sign Out</button>
         
