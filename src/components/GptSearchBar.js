@@ -35,9 +35,9 @@ const GptSearchBar = () => {
       });
       if(!gptResults.choices)
       {
-        //do error handling 
+        return null;
       }
-      console.log(gptResults.choices[0]?.message?.content.split(", "));
+      
 
       const gptMovies=gptResults.choices[0]?.message?.content.split(", ");
 
@@ -45,14 +45,13 @@ const GptSearchBar = () => {
       const promiseArray = gptMovies.map(movie=>searchMovieTMDB(movie))
       
       const tmdbResults= await Promise.all(promiseArray);
-      console.log(tmdbResults);
-
+      
       dispatch(addGptMovieResult({movieNames: gptMovies, movieResults: tmdbResults}));
     }
   return (
-    <div className='pt-[10%] flex justify-center'>
+    <div className='pt-[35%] md:pt-[10%] flex justify-center'>
       <form 
-        className='w-1/2  bg-black grid grid-cols-12 bg-opacity-60'
+        className=' w-full md:w-1/2  bg-black grid grid-cols-12 bg-opacity-60'
         onSubmit={(e)=>e.preventDefault()}>
         <input 
             ref={searchText}

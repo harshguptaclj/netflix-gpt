@@ -15,16 +15,6 @@ const Browse = () => {
       { showGptSearch?<><div className='-my-10'><Header/></div><GptSearch/></>:<><Header/><MainContainer/>
       <SecondaryContainer/></>}
       
-      
-      {/* 
-          Main Container
-            - VideoBackground
-            - VideoTitle
-          SecondaryContainer
-            - MovieList * n
-            - Card * n  
-      
-       */}
     </div>
   )
 }
