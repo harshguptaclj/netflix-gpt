@@ -1,6 +1,6 @@
 # Netflix With GPT - A Netflix clone with GPT powered Search engine
 
-To view the application, click here → 🔥 To be deployed soon🔥
+To view the application, click here → 🔥[Netflix With GPT](https://netflixwithgpt.netlify.app/ "Netflix With GPT")🔥
 
 ## 💻 Functional: 
 - Modules (Pages) 
