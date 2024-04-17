@@ -16,14 +16,14 @@ const GptSearchBar = () => {
 
     //search movie in TMDB
     const searchMovieTMDB =async (movie) =>{
-      const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1", API_OPTIONS);
+      const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1&api_key=2e425961fdfa937368c286cc6d285050", API_OPTIONS);
       const json = await data.json();
       
       return json.results;
     }
 
     const handleGptSearchClick =async()=>{
-      console.log(searchText.current.value)
+      
 
       const gptQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
