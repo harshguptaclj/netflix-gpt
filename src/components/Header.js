@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 import { addUser, removeUser } from '../utils/userSlice';
 import {useDispatch} from "react-redux"
 import { LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from '../utils/constants';
-import { toggleGptSearchView } from '../utils/gptSlice';
+import { deleteGptMovieResult, toggleGptSearchView } from '../utils/gptSlice';
 import { changeLanguage } from '../utils/configSlice';
 
 const Header = () => {
@@ -14,6 +14,7 @@ const Header = () => {
   const navigate =useNavigate();
   const dispatch = useDispatch();
   const user= useSelector(store=> store.user);
+  
   const handleSignOut=()=>{
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -45,7 +46,10 @@ const Header = () => {
 
   const handleGptSearchClick =()=>{
     //Toggle GPT Search button
-    dispatch(toggleGptSearchView())
+    dispatch(toggleGptSearchView());
+    if(showGptSearch){
+      dispatch(deleteGptMovieResult());
+    }
 
   }
 
@@ -54,7 +58,7 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value))
   }
   return (
-    <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-20 flex flex-col md:flex-row justify-between my-10 ">
+    <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-20 flex flex-col md:flex-row justify-between my-0 ">
       <img
         className="w-44 mx-auto md:mx-0"
         src={LOGO}
@@ -77,7 +81,7 @@ const Header = () => {
           alt="userIcon"
           src={USER_AVATAR}
           ></img>
-        <button onClick={handleSignOut} className="font-bold text-white h-12 mx-5 my-3 p-2 bg-red-600 rounded-xl">Sign Out</button>
+        <button onClick={handleSignOut} className="font-bold text-white h-12 w-14 sm:w-24 mx-5 my-3 md:p-2 bg-red-600 rounded-xl">Sign Out</button>
         
        </div>}
        

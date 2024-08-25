@@ -27,7 +27,11 @@ const Login = () => {
     if(!isSignInForm)
     {
       //sign up logic
-      createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+      createUserWithEmailAndPassword(
+        auth, 
+        email.current.value,
+        password.current.value
+      )
       .then((userCredential) => {
         const user = userCredential.user;
         updateProfile(user, {
@@ -40,7 +44,7 @@ const Login = () => {
           // An error occurred
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode+"-"+errorMessage);
+          setErrorMessage(errorMessage+"  Error Code: "+errorCode);
         });
         
        
@@ -49,7 +53,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        setErrorMessage(errorCode+"-"+errorMessage);
+        setErrorMessage(errorMessage+"  Error Code: "+ errorCode);
       });
 
     }
@@ -65,7 +69,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        setErrorMessage(errorCode+"-"+errorMessage);
+        setErrorMessage(errorMessage+"  Error Code: "+errorCode);
       });
     }
   }
@@ -74,18 +78,18 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   }
   return (
-    <div>
-      <div className='-my-10'><Header/></div>
+    <div >
+      <div ><Header/></div>
       <div className="absolute">
         <img 
-            className='h-screen object-cover md:w-screen md:h-full'
+            className='h-screen  md:w-screen md:h-screen '
             src={BG_URL}
             alt="logo"
         />
       </div>
       <form 
         onSubmit={(e)=>e.preventDefault()}
-        className="w-full md:w-3/12 absolute p-12 bg-black my-56 mx-auto right-0 left-0 text-white rounded-lg opacity-80 ">
+        className="w-full md:w-3/12 absolute p-12 bg-black my-40 mx-auto right-0 left-0 text-white rounded-lg opacity-80 ">
         <h1 className="font-bold text-3xl py-4">{isSignInForm? "Sign In" : "Sign Up"}</h1>
         {!isSignInForm && <input 
           ref={name}

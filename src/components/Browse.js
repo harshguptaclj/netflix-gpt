@@ -16,8 +16,8 @@ const Browse = () => {
   
   return (
     <div >
-      { showGptSearch?<><div className='-my-10'><Header/></div><GptSearch/></>:<><Header/><MainContainer/>
-      <SecondaryContainer/></>}
+      { showGptSearch?<><><Header/></><GptSearch/></>:<div className='h-screen'><Header/><MainContainer/>
+      <SecondaryContainer/></div>}
       <div className='relative mt-96'>
       </div>
     </div>
