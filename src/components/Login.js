@@ -92,7 +92,7 @@ const Login = () => {
         className="w-full md:w-3/12 absolute p-12 bg-black my-40 mx-auto right-0 left-0 text-white rounded-lg opacity-80 ">
         <h1 className="font-bold text-3xl py-3">{isSignInForm? "Sign In" : "Sign Up"}</h1>
         <h3 className="text-2xl text-yellow-200">Notice : Use Only Airtel Network</h3>
-        <h5 className="text-base">TMDB API and OpenAI API is blocked by Jio and NITP </h5>
+        <h5 className="text-base">TMDB API and OpenAI API, used in this project are blocked by Jio and NITP </h5>
         {!isSignInForm && <input 
           ref={name}
           type="text" 
